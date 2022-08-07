@@ -6,5 +6,6 @@ object S99 {
     println(s"${list}")
     println(s"last: ${last(list)}")
     println(s"penultimate: ${penultimate(list)}")
+    println(s"nth 4: ${nth(4, list)}")
   }
 }
