@@ -1,6 +1,9 @@
 object ListProblems {
     def last(list: List[Any]): Any = {
-        list.last
+        list.length match {
+            case 0 => Nil
+            case _ => list.last
+        }
     }
 
     def penultimate(list: List[Any]): Any = {
