@@ -1,10 +1,10 @@
+import ListProblems._
+
 object S99 {
   def main(args: Array[String]): Unit = {
-    println("Hello, World!")
-    println(last(List(1, 2, 3, 5)))
-  }
-
-  def last(list: List[Any]): Any = {
-    list.last
+    val list = List(1, 2, 4, 7, 9)
+    println(s"${list}")
+    println(s"last: ${last(list)}")
+    println(s"penultimate: ${penultimate(list)}")
   }
 }
