@@ -28,4 +28,16 @@ object ListProblems {
 
         iterate(0, list)
     }
+
+    //P04
+    def length(list: List[Any]): Any = {
+        def count(i: Int, list: List[Any]): Any = {
+            list match {
+                case Nil => i
+                case current :: tail => count(i + 1, tail)
+            }
+        }
+
+        count(0, list)
+    }
 }
