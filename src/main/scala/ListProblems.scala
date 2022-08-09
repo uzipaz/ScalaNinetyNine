@@ -40,4 +40,33 @@ object ListProblems {
 
         count(0, list)
     }
+
+    //P05
+    def reverse(list: List[Any]): Any = {
+        def rebuild(newList: List[Any], list: List[Any]): List[Any] = {
+            list match {
+                case Nil => newList
+                case item :: tail => rebuild(item :: newList, tail)
+            }
+        }
+
+        rebuild(Nil, list) 
+    }
+
+    //P06
+    def isPalindrome(list: List[Any]): Boolean = {
+        def doesMatch(counter: Int, list: List[Any]): Boolean = {
+            counter match {
+                case x if x == (list.length / 2) => true
+                case _ => {
+                    list(counter) match {
+                        case x if x == list((list.length - 1) - counter) => doesMatch(counter + 1, list)
+                        case _ => false
+                    }
+                }
+            }
+        }
+
+        doesMatch(0, list)
+    }
 }
