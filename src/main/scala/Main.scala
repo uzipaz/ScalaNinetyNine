@@ -10,5 +10,9 @@ object S99 {
     println(s"length: ${length(list)}")
     println(s"reverse: ${reverse(list)}")
     println(s"isPalindrome: ${isPalindrome(list)}")
+    val listOfLists: List[Any] = List(1, 2, List(3, 4, 5), 6, List(7, 8, 9), 10)
+    println(s"flatten: ${flatten(listOfLists)}")
+    val listDuplicates = List(3, 3, 1, 1, 1, 9, 9, 2, 2, 1, 1, 6, 6, 6, 9, 9, 9)
+    println(s"compress: ${compress(listDuplicates)}")
   }
 }

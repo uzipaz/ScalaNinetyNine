@@ -42,7 +42,7 @@ object ListProblems {
     }
 
     //P05
-    def reverse(list: List[Any]): Any = {
+    def reverse(list: List[Any]): List[Any] = {
         def rebuild(newList: List[Any], list: List[Any]): List[Any] = {
             list match {
                 case Nil => newList
@@ -68,5 +68,30 @@ object ListProblems {
         }
 
         doesMatch(0, list)
+    }
+
+    //P07
+    def flatten(list: List[Any]): List[Any] = {
+        list flatMap {
+            case subList: List[_] => flatten(subList)
+            case h => List(h)
+        }
+    }
+
+    //P08
+    def compress(list: List[Any]): List[Any] = {
+        def removeConsecutiveDuplicates(current: Any, newList: List[Any], list: List[Any]): List[Any] = {
+            list match {
+                case Nil => reverse(newList)
+                case h :: tail => {
+                    h match {
+                        case x if x == current => removeConsecutiveDuplicates(current, newList, tail)
+                        case x if x != current => removeConsecutiveDuplicates(x, x :: newList, tail)
+                    }
+                }
+            }
+        }
+
+        removeConsecutiveDuplicates(Nil, Nil, list)
     }
 }
