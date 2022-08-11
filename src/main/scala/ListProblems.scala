@@ -94,4 +94,26 @@ object ListProblems {
 
         removeConsecutiveDuplicates(Nil, Nil, list)
     }
+
+    //P09
+    def packConsecutive(list: List[Any]): List[Any] = {
+        def pack(currentList: List[Any], newList: List[Any], origList: List[Any]): List[Any] = {
+            origList match {
+                case Nil => reverse(currentList :: newList)
+                case h :: tail => {
+                    currentList.length match {
+                        case 0 => pack(h :: currentList, newList, tail)
+                        case _ => {
+                            currentList.last match {
+                                case x if x != h => pack(h :: Nil, currentList :: newList, tail)
+                                case h => pack(h :: currentList, newList, tail)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        pack(Nil, Nil, list)
+    }
 }
