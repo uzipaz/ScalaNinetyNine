@@ -116,4 +116,18 @@ object ListProblems {
 
         pack(Nil, Nil, list)
     }
+
+    //P10
+    def encode(list: List[Symbol]): List[(Int, Symbol)] = {
+        val packed = packConsecutive(list).asInstanceOf[List[List[Symbol]]]
+
+        def encodePacked(newList: List[(Int, Symbol)], packedList: List[List[Symbol]]): List[(Int, Symbol)] = {
+            packedList match {
+                case Nil => reverse(newList).asInstanceOf[List[(Int, Symbol)]]
+                case h :: tail => encodePacked((h.length, h.head) :: newList, tail)
+            }
+        }
+
+        encodePacked(Nil, packed)
+    }
 }

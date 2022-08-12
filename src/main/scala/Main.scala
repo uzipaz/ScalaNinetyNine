@@ -15,5 +15,7 @@ object S99 {
     val listDuplicates = List(3, 3, 1, 1, 1, 9, 9, 2, 2, 1, 6, 6, 6, 9, 9, 9)
     println(s"compress: ${compress(listDuplicates)}")
     println(s"packConsecutive: ${packConsecutive(listDuplicates)}")
+    val encoded = List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)
+    println(s"run-length encoding: ${encode(encoded)}")
   }
 }
