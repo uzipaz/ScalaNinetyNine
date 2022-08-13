@@ -1,4 +1,5 @@
 import ListProblems._
+import arithmetic.S99Int
 
 object S99 {
   def main(args: Array[String]): Unit = {
@@ -17,5 +18,7 @@ object S99 {
     println(s"packConsecutive: ${packConsecutive(listDuplicates)}")
     val encoded = List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)
     println(s"run-length encoding: ${encode(encoded)}")
+    val s99Int: S99Int = 89
+    println(s"isPrime: ${s99Int.isPrime}")
   }
 }
